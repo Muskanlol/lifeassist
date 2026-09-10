@@ -1,5 +1,7 @@
 # LifeAssist
 
+![LifeAssist — parks, food, and leave-by commute](docs/lifeassist-hero.png)
+
 A hyperlocal daily assistant for India: nearby parks, food that is open now, and a leave-by commute time that accounts for peak-hour crowding.
 
 ## Why it exists
