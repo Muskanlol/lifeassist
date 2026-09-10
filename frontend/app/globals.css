@@ -1,0 +1,154 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-contrast: var(--contrast);
+  --color-on-contrast: var(--on-contrast);
+  --color-mute: var(--mute);
+  --color-clay: var(--clay);
+  --color-moss: var(--moss);
+  --color-deep: var(--deep);
+  --color-sand: var(--sand);
+  --color-peak: var(--peak);
+  --color-wine: var(--wine);
+  --color-ember: var(--ember);
+  --color-fog: var(--fog);
+  --font-sans: var(--font-sans-family);
+  --font-serif: var(--font-serif-family);
+}
+
+:root {
+  --paper: #d8d2c6;
+  --surface: #f4efe4;
+  --cream: #faf6ee;
+  --ink: #1c1814;
+  --contrast: #6f1c22;
+  --on-contrast: #faf6ee;
+  --mute: #6a5d52;
+  --clay: #c24e1d;
+  --moss: #355e49;
+  --deep: #1a3d4a;
+  --sand: #c9bba8;
+  --peak: #8b1e24;
+  --wine: #6f1c22;
+  --ember: #c45c28;
+  --fog: #e7e0d3;
+  color-scheme: light;
+}
+
+html.dark {
+  --paper: #0c0a08;
+  --surface: #17130f;
+  --cream: #f6ead8;
+  --ink: #f3eadc;
+  --contrast: #e8893a;
+  --on-contrast: #140f0c;
+  --mute: #b8a894;
+  --clay: #e0783c;
+  --moss: #3f8a62;
+  --deep: #1e5568;
+  --sand: #2c261e;
+  --peak: #ffb070;
+  --wine: #e8893a;
+  --ember: #f0a05a;
+  --fog: #211c16;
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100%;
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(1100px 560px at 92% -12%, color-mix(in srgb, var(--sand) 80%, transparent), transparent 58%),
+    radial-gradient(820px 480px at -10% 108%, color-mix(in srgb, var(--moss) 22%, transparent), transparent 52%),
+    radial-gradient(640px 380px at 40% 0%, color-mix(in srgb, var(--clay) 12%, transparent), transparent 48%);
+}
+
+html.dark body {
+  background-image:
+    radial-gradient(920px 540px at 100% -8%, rgba(232, 137, 58, 0.32), transparent 56%),
+    radial-gradient(760px 500px at -8% 110%, rgba(30, 85, 104, 0.28), transparent 52%),
+    radial-gradient(520px 320px at 50% 0%, rgba(63, 138, 98, 0.12), transparent 50%),
+    linear-gradient(180deg, #14110e, #0c0a08);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
+}
+
+html.dark body::before {
+  opacity: 0.08;
+}
+
+.font-serif {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+.auth-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 244, 220, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 244, 220, 0.08) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+.field-input {
+  margin-top: 0.5rem;
+  width: 100%;
+  border-radius: 0.9rem;
+  border: 1px solid var(--sand);
+  background: var(--fog);
+  padding: 0.8rem 1rem;
+  outline: none;
+}
+
+.field-input:focus {
+  border-color: var(--wine);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--wine) 22%, transparent);
+}
+
+.leaflet-container {
+  font-family: var(--font-sans), "Segoe UI", sans-serif;
+  background: var(--sand);
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.leaflet-popup-content {
+  margin: 10px 12px;
+  font-size: 13px;
+}
+
+.leaflet-control-zoom a {
+  background: var(--surface) !important;
+  color: var(--ink) !important;
+  border-color: var(--sand) !important;
+}
+
+.la-map-tiles-dark {
+  filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.92) saturate(0.55);
+}
